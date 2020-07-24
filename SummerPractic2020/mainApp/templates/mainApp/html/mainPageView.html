@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This is our summer work!</title>
+    <link rel="stylesheet" href="../../../static/css/reset.css">
+    <link rel="stylesheet" href="../../../static/css/mainPage-style.css">
+    <script src="../../../static/js/drawJS.js"></script>
+</head>
+<body>
+<div class="section">
+    <h1 class="header">
+        Анализ данных на языке Python с использованием фреймворка Djangо и библиотеки TensorFlow
+    </h1>
+</div>
+<div class="main">
+    <div class="draw-area">
+        <div class="CanvasContainer">
+            <canvas id="drawingCanvas" width="600" height="460"></canvas>
+        </div>
+    </div>
+    <div class="option">
+        <button onclick="clearCanvas()" class="start-btn">Очистить поле</button>
+        <button onclick="formCode()" class="form-btn">Сформировать код</button>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <input hidden name="say" id="codeBlock" value="">
+            </div>
+            <div>
+                <button onclick="saveCanvas()" class="analys-btn">Анализ</button>
+            </div>
+        </form>
+        <form method="GET" action="/download" class="output-form">
+            <input size="37" class="text-area" name="output" id="out-input" value="{{ result }}">
+            <button class="output-btn">Сохранить данные в файл</button>
+        </form>
+    </div>
+</div>
+<div class="resources">
+    <p>Прикладная математика, группы 09-921, 09-922</p>
+    <p>Казанский федеральный Университет, ИВМиИТ</p>
+    <p>2020 год</p>
+</div>
+</body>
+</html>
